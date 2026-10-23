@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سيرتي — اصنع سيرتك الذاتية بالعربي والإنجليزي مجاناً</title>
+<meta name="description" content="اصنع سيرة ذاتية احترافية بالعربي أو الإنجليزي خلال دقائق، بقوالب من تصميم مصمم محترف، وحمّلها PDF مجاناً. بياناتك تبقى في جهازك.">
+<meta name="theme-color" content="#F2F3F7">
+<meta property="og:title" content="سيرتي — اصنع سيرتك الذاتية بالعربي والإنجليزي مجاناً">
+<meta property="og:description" content="قوالب احترافية جاهزة لأنظمة التوظيف، معاينة مباشرة، وتحميل PDF مجاناً.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Readex+Pro:wght@400;600;700&display=swap">
+<style>
+/* Layout: sticky app bar; editor column + live A4 preview side by side on desktop, tabs on phones */
+:root {
+  --bg:#F2F3F7; --card:#FFFFFF; --ink:#0E1020; --muted:#4A4F66; --line:#DCDEE8; --soft:#EEF0F5; --hl:#FFE066;
+  --brand:#6B2BF0; --brand-soft:#EFE8FF; --ok:#15803D; --warn:#B45309; --bad:#B91C1C;
+  --ui:'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  --disp:'Readex Pro', 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+}
+* { box-sizing:border-box; }
+[hidden] { display:none !important; }
+html, body { margin:0; }
+body { font-family:var(--ui); background:var(--bg); color:var(--ink); -webkit-text-size-adjust:100%; }
+button, input, textarea, select { font:inherit; color:inherit; }
+button { cursor:pointer; }
+:focus-visible { outline:3px solid var(--brand); outline-offset:2px; }
+
+
+.logo { display:flex; align-items:center; gap:10px; font-family:var(--disp); font-weight:700; font-size:22px; }
+.logo i { width:38px; height:38px; border-radius:11px; background:var(--brand); display:flex; align-items:center; justify-content:center; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:0 18px; border-radius:12px; border:0; font-weight:700; font-size:15px; white-space:nowrap; }
+.btn-main { background:var(--brand); color:#fff; }
+.btn-soft { background:var(--soft); }
+.btn-line { background:var(--card); border:1.5px solid var(--line); }
+.btn:disabled { opacity:.5; cursor:default; }
+
+.hero { max-width:760px; margin:0 auto; text-align:center; padding:26px max(16px, env(safe-area-inset-right)) 4px max(16px, env(safe-area-inset-left)); }
+.hero h1 { font-family:var(--disp); font-size:clamp(24px, 5.6vw, 38px); line-height:1.35; margin:0 0 10px; text-wrap:balance; }
+.hero h1 span { color:var(--brand); }
+.hero p { margin:0 auto; color:var(--muted); font-size:16px; line-height:1.8; max-width:560px; }
+.pills { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:14px; }
+.pill { background:var(--card); border:1px solid var(--line); border-radius:999px; padding:6px 12px; font-size:13px; font-weight:600; color:var(--muted); }
+
+.tabs { display:none; }
+.layout { display:grid; grid-template-columns:minmax(360px, 460px) minmax(0, 1fr); gap:20px; align-items:start; max-width:1400px; margin:0 auto;
+  padding:18px max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); }
+.editor { display:flex; flex-direction:column; gap:14px; min-width:0; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; }
+.card h2 { margin:0; font-size:16px; }
+
+/* strength */
+.str-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.str-top p { margin:2px 0 0; font-size:14px; font-weight:600; }
+#strNum { font-family:var(--disp); font-size:34px; line-height:1; font-variant-numeric:tabular-nums; }
+.bar { height:10px; border-radius:6px; background:var(--soft); overflow:hidden; margin-top:12px; }
+.bar i { display:block; height:100%; border-radius:6px; transition:width .4s ease, background .4s; }
+#strTips { margin:12px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px; }
+#strTips li { font-size:14px; line-height:1.65; color:var(--ink); display:flex; gap:10px; background:#FFF8DB; border-radius:12px; padding:10px 12px; }
+#strTips li::before { content:""; flex:none; width:18px; height:18px; margin-top:2px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B45309' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18h6M10 21h4'/%3E%3Cpath d='M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z'/%3E%3C/svg%3E") center/contain no-repeat; }
+
+/* design */
+.tpls { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:10px; margin-top:12px; }
+.tpl { border:2px solid var(--line); background:var(--card); border-radius:14px; padding:6px 6px 8px; display:flex; flex-direction:column; gap:6px; align-items:stretch; font-size:13px; font-weight:700; }
+.tpl[aria-pressed="true"] { border-color:var(--brand); background:var(--brand-soft); }
+.mini { position:relative; display:block; aspect-ratio:3/4; border-radius:7px; background:#fff; border:1px solid var(--line); overflow:hidden; }
+.mini i { position:absolute; display:block; height:4px; border-radius:2px; background:#D5D9E2; }
+.m-modern i:nth-child(1) { top:0; bottom:0; right:0; width:32%; height:auto; border-radius:0; background:var(--c); }
+.m-modern i:nth-child(2) { top:12%; left:10%; width:42%; height:7px; background:#8C94A6; }
+.m-modern i:nth-child(3) { top:28%; left:10%; width:46%; }
+.m-modern i:nth-child(4) { top:38%; left:10%; width:40%; }
+.m-modern i:nth-child(5) { top:48%; left:10%; width:46%; }
+.m-classic i:nth-child(1) { top:10%; left:25%; width:50%; height:7px; background:#8C94A6; }
+.m-classic i:nth-child(2) { top:21%; left:12%; width:76%; height:2px; background:var(--c); }
+.m-classic i:nth-child(3) { top:32%; left:12%; width:76%; }
+.m-classic i:nth-child(4) { top:42%; left:12%; width:70%; }
+.m-classic i:nth-child(5) { top:52%; left:12%; width:76%; }
+.m-creative i:nth-child(1) { top:0; left:0; right:0; height:26%; border-radius:0; background:var(--c); }
+.m-creative i:nth-child(2) { top:32%; bottom:0; left:0; width:34%; height:auto; border-radius:0; background:#EEF0F5; }
+.m-creative i:nth-child(3) { top:38%; right:10%; width:48%; }
+.m-creative i:nth-child(4) { top:48%; right:10%; width:42%; }
+.m-creative i:nth-child(5) { top:58%; right:10%; width:48%; }
+.m-minimal i:nth-child(1) { top:10%; right:12%; width:55%; height:8px; background:#3B4252; }
+.m-minimal i:nth-child(2) { top:21%; right:12%; width:30%; background:var(--c); }
+.m-minimal i:nth-child(3) { top:34%; left:10%; width:56%; }
+.m-minimal i:nth-child(4) { top:44%; left:10%; width:50%; }
+.m-minimal i:nth-child(5) { top:34%; right:12%; width:14%; background:var(--c); }
+.drow { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; flex-wrap:wrap; }
+.drow .lbl { font-size:14px; font-weight:600; color:var(--muted); }
+.sw { display:flex; gap:8px; flex-wrap:wrap; }
+.sw button { width:34px; height:34px; border-radius:50%; border:3px solid #fff; box-shadow:0 0 0 1.5px var(--line); }
+.sw button[aria-pressed="true"] { box-shadow:0 0 0 2.5px var(--ink); }
+.seg { display:flex; background:var(--soft); border-radius:12px; padding:4px; gap:4px; }
+.seg button { border:0; background:transparent; border-radius:9px; padding:8px 14px; font-weight:700; font-size:14px; min-height:38px; }
+.seg button[aria-pressed="true"] { background:var(--card); box-shadow:0 1px 3px rgba(0,0,0,.12); }
+.note { margin:12px 0 0; font-size:13px; color:var(--muted); line-height:1.7; }
+
+/* sections */
+.sec { background:var(--card); border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+.sec > summary { list-style:none; cursor:pointer; padding:16px; display:flex; align-items:center; gap:10px; font-weight:700; font-size:16px; }
+.sec > summary::-webkit-details-marker { display:none; }
+.sec > summary::after { content:""; margin-right:auto; width:10px; height:10px; border-left:2.5px solid var(--muted); border-bottom:2.5px solid var(--muted); transform:rotate(-45deg); transition:transform .2s; }
+.sec[open] > summary::after { transform:rotate(135deg); }
+.cnt { background:var(--soft); color:var(--muted); font-size:12px; border-radius:999px; padding:2px 9px; font-variant-numeric:tabular-nums; }
+.sec-b { padding:0 16px 16px; display:flex; flex-direction:column; gap:12px; }
+.g2 { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
+.f { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.f > span { font-size:13px; font-weight:600; color:var(--muted); }
+.f input, .f textarea, .f select { width:100%; min-height:46px; border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; background:#FBFBFD; font-size:16px; }
+.f textarea { resize:vertical; line-height:1.7; min-height:96px; }
+.f input:focus, .f textarea:focus, .f select:focus { border-color:var(--brand); background:#fff; outline:none; box-shadow:0 0 0 3px var(--brand-soft); }
+.f input:disabled { opacity:.5; }
+.hint { margin:0; font-size:12.5px; color:var(--muted); line-height:1.6; }
+.chk { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; align-self:end; min-height:46px; }
+.chk input { width:20px; height:20px; accent-color:var(--brand); }
+.photo-row { display:flex; gap:14px; align-items:center; }
+.pp { width:76px; height:76px; border-radius:50%; background:var(--soft) center/cover; flex:none; display:flex; align-items:center; justify-content:center; color:var(--muted); }
+.photo-row .acts { display:flex; flex-wrap:wrap; gap:8px; }
+.it { border:1.5px solid var(--line); border-radius:14px; background:#FBFBFD; }
+.it-h { display:flex; align-items:center; gap:6px; padding:6px 6px 6px 8px; }
+.it-t { flex:1; min-width:0; border:0; background:none; text-align:right; padding:8px; display:flex; flex-direction:column; gap:2px; }
+.it-t b { font-size:15px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.it-t small { font-size:13px; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.it-a { display:flex; gap:4px; }
+.it-a button { min-width:40px; height:40px; border-radius:10px; border:0; background:var(--soft); font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; padding:0 10px; }
+.it-a button:disabled { opacity:.35; cursor:default; }
+.it-a button.armed { background:var(--bad); color:#fff; }
+.it-b { display:none; padding:4px 12px 14px; flex-direction:column; gap:10px; }
+.it.open .it-b { display:flex; }
+.add { border:1.5px dashed #C8CDD8; background:transparent; border-radius:14px; min-height:48px; font-weight:700; color:var(--brand); }
+.skill-in { display:flex; gap:8px; }
+.skill-in input { flex:1; min-width:0; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; }
+.chip { display:inline-flex; align-items:center; gap:4px; background:var(--brand-soft); color:#3F1A99; border-radius:999px; padding:4px 6px 6px 14px; font-size:14px; font-weight:600; }
+.chip button { border:0; background:transparent; width:28px; height:28px; border-radius:50%; font-size:13px; color:#3F1A99; }
+.sug { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 12px; font-size:13px; font-weight:600; color:var(--muted); }
+.empty { font-size:14px; color:var(--muted); }
+.tools { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+#saved { font-size:13px; color:var(--ok); font-weight:600; margin:12px 0 0; }
+
+/* preview */
+.preview { position:sticky; top:16px; min-width:0; }
+.ptools { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; flex-wrap:wrap; }
+#pageCount { font-size:14px; font-weight:600; color:var(--muted); }
+#pageCount.warn { color:var(--warn); }
+.stage { background:#D9DCE4; border-radius:18px; padding:12px; max-height:calc(100vh - 150px); overflow:auto; }
+.scaler { position:relative; margin:0 auto; }
+#page { position:absolute; top:0; left:0; transform-origin:0 0; }
+.pb { position:absolute; left:0; right:0; height:0; border-top:2px dashed rgba(220,38,38,.65); z-index:5; pointer-events:none; }
+.pb span { position:absolute; top:-13px; left:12px; background:#DC2626; color:#fff; font:700 12px/1 var(--ui); padding:6px 10px; border-radius:999px; }
+
+footer { text-align:center; padding:8px 16px 32px; color:var(--muted); font-size:13px; line-height:1.9; }
+footer strong { color:var(--ink); direction:ltr; unicode-bidi:isolate; }
+
+.sheet-bg { position:fixed; inset:0; background:rgba(18,24,38,.45); z-index:50; display:flex; align-items:flex-end; justify-content:center; }
+.sheet { background:#fff; width:100%; max-width:520px; border-radius:24px 24px 0 0; padding:24px 20px calc(24px + env(safe-area-inset-bottom)); display:flex; flex-direction:column; gap:14px; }
+.sheet h3 { margin:0; font-size:19px; }
+.sheet ol { margin:0; padding-inline-start:22px; line-height:2; font-size:15px; }
+
+@media (max-width: 980px) {
+  .layout { grid-template-columns:1fr; padding-top:10px; }
+  .tabs { display:flex; position:sticky; top:0; z-index:25; gap:6px; background:var(--bg); padding:10px max(16px, env(safe-area-inset-right)) 4px max(16px, env(safe-area-inset-left)); }
+  .tabs button { flex:1; min-height:46px; border-radius:12px; border:1.5px solid var(--line); background:var(--card); font-weight:700; font-size:15px; }
+  .tabs button[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:#fff; }
+  body[data-view="edit"] .preview { display:none; }
+  body[data-view="preview"] .editor { display:none; }
+  .preview { position:static; display:flex; flex-direction:column; }
+  .ptools { order:2; position:sticky; bottom:0; z-index:6; margin:12px 0 0; background:#fff; border-radius:24px 24px 0 0; box-shadow:0 -12px 30px rgba(14,16,32,.10); padding:16px 16px calc(16px + env(safe-area-inset-bottom)); flex-direction:column; align-items:stretch; gap:12px; }
+  .ptools .btn-main { min-height:56px; font-size:17px; }
+  .stage { max-height:none; padding:10px; }
+  .hero { padding-top:18px; }
+}
+@media (max-width: 420px) {
+  .g2 { grid-template-columns:1fr; }
+  .tpls { gap:6px; }
+  .tpl { padding:4px 4px 6px; font-size:12px; }
+  .top .btn-main span { display:none; }
+}
+
+
+/* ============ LANDING ============ */
+.wrap { width:100%; max-width:1200px; margin:0 auto; }
+.top { padding:16px max(20px, env(safe-area-inset-right)) 16px max(20px, env(safe-area-inset-left)); background:var(--bg); }
+.topin { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.logo { text-decoration:none; color:var(--ink); }
+.nav { display:flex; align-items:center; gap:26px; font-size:15px; font-weight:600; }
+.nav a { color:var(--ink); text-decoration:none; }
+.nav a:hover { color:var(--brand); }
+.nav a.btn-ink, .nav a.btn-ink:hover { color:#fff; }
+.btn-ink { background:var(--ink); color:#fff; text-decoration:none; }
+.btn-big { min-height:58px; padding:0 30px; border-radius:16px; font-size:18px; text-decoration:none; }
+.btn-big.btn-main { box-shadow:0 14px 30px rgba(107,43,240,.28); }
+.btn-big.btn-line { color:var(--ink); }
+.hl { background:linear-gradient(transparent 58%, var(--hl) 58%, var(--hl) 92%, transparent 92%); padding:0 6px; }
+.eyebrow { font-size:14px; font-weight:700; color:var(--brand); }
+.lp-h2 { font-family:var(--disp); font-weight:700; font-size:clamp(30px, 4.6vw, 44px); line-height:1.3; margin:10px 0 0; text-wrap:balance; }
+.lp-lead { font-size:18px; line-height:1.8; color:var(--muted); margin:12px 0 0; max-width:640px; }
+.lp-sec { padding:88px max(20px, env(safe-area-inset-right)) 88px max(20px, env(safe-area-inset-left)); }
+.lp-white { background:#fff; }
+.lp-dark { background:var(--ink); color:#fff; }
+
+.lp-hero { padding:36px max(20px, env(safe-area-inset-right)) 72px max(20px, env(safe-area-inset-left)); }
+.lp-hero .wrap { display:flex; flex-wrap:wrap; align-items:center; gap:56px; }
+.hero-text { flex:1 1 460px; min-width:0; display:flex; flex-direction:column; gap:24px; }
+.hero-text h1 { margin:0; font-family:var(--disp); font-weight:700; font-size:clamp(36px, 6vw, 64px); line-height:1.25; letter-spacing:-.01em; text-wrap:balance; }
+.hero-text p { margin:0; font-size:19px; line-height:1.85; color:var(--muted); max-width:540px; }
+.live { align-self:flex-start; display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:999px; padding:8px 16px; font-size:14px; font-weight:600; color:var(--muted); }
+.live i { width:8px; height:8px; border-radius:50%; background:#16A34A; }
+.cta-row { display:flex; flex-wrap:wrap; gap:12px; }
+.proof { display:flex; flex-wrap:wrap; gap:10px 22px; font-size:15px; font-weight:600; color:var(--muted); }
+.proof span { display:flex; align-items:center; gap:8px; }
+
+.hero-vis { flex:1 1 460px; min-width:0; height:600px; position:relative; }
+.sh { position:absolute; background:#fff; border-radius:10px; overflow:hidden; }
+.sh-back { left:50%; top:40px; width:360px; height:509px; margin-left:-250px; transform:rotate(-7deg); box-shadow:0 30px 60px rgba(14,16,32,.12); }
+.sh-front { left:50%; top:70px; width:380px; height:537px; margin-left:-150px; transform:rotate(4deg); box-shadow:0 40px 80px rgba(14,16,32,.18); display:flex; }
+.ln { height:5px; border-radius:3px; background:#E3E5EE; }
+.fl { position:absolute; box-shadow:0 18px 36px rgba(14,16,32,.16); }
+.fl-score { right:0; top:330px; width:230px; background:#fff; border-radius:18px; padding:16px 18px; display:flex; flex-direction:column; gap:10px; }
+.fl-pdf { left:10px; top:120px; background:var(--ink); color:#fff; border-radius:14px; padding:12px 16px; display:flex; align-items:center; gap:10px; font-size:14px; font-weight:700; }
+.fl-pdf b { background:#E24B3B; border-radius:6px; padding:3px 7px; font-size:11px; }
+.fl-ats { left:60px; bottom:30px; background:var(--hl); border-radius:999px; padding:10px 18px; font-size:14px; font-weight:700; display:flex; align-items:center; gap:8px; }
+
+.bhead { padding:8px max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left)); }
+.bhead .wrap { max-width:1400px; }
+#builder { background:var(--bg); padding-bottom:30px; border-top:1px solid var(--line); padding-top:56px; }
+
+.steps { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:44px; }
+.step { background:var(--bg); border-radius:24px; padding:30px; display:flex; flex-direction:column; gap:12px; }
+.step b { font-family:var(--disp); font-weight:700; font-size:56px; line-height:1; color:var(--brand); }
+.step h3 { margin:0; font-size:22px; }
+.step p, .feat p { margin:0; font-size:16px; line-height:1.85; color:var(--muted); }
+
+.thead { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:20px; }
+.dotsrow { display:flex; gap:10px; }
+.dotsrow i { width:32px; height:32px; border-radius:50%; display:block; }
+.tgrid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:22px; margin-top:44px; }
+.tcard { border:0; background:none; padding:0; text-align:right; display:flex; flex-direction:column; gap:14px; color:var(--ink); }
+.tmock { aspect-ratio:210 / 297; max-width:100%; background:#fff; border-radius:12px; box-shadow:0 18px 40px rgba(14,16,32,.10); overflow:hidden; transition:transform .2s ease, box-shadow .2s ease; }
+.tcard:hover .tmock, .tcard:focus-visible .tmock { transform:translateY(-6px); box-shadow:0 26px 50px rgba(14,16,32,.16); }
+.tlabel { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.tlabel h3 { margin:0; font-size:20px; }
+.tlabel span { font-size:13px; font-weight:600; color:var(--muted); background:#fff; border-radius:999px; padding:4px 12px; }
+.tuse { font-size:14px; font-weight:700; color:var(--brand); }
+
+.sband .wrap { display:flex; flex-wrap:wrap; align-items:center; gap:56px; }
+.sband .stx { flex:1 1 420px; min-width:0; }
+.sband .lp-lead { color:#C3C6D6; }
+.sband .eyebrow { color:var(--hl); }
+.scard { flex:1 1 420px; min-width:0; background:#fff; color:var(--ink); border-radius:26px; padding:28px; display:flex; flex-direction:column; gap:16px; }
+.tipx { display:flex; gap:12px; align-items:flex-start; background:#F6F7FA; border-radius:14px; padding:14px 16px; font-size:16px; line-height:1.7; }
+.tipx i { flex:none; width:26px; height:26px; border-radius:50%; background:var(--hl); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; font-style:normal; }
+
+.fgrid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:18px; margin-top:44px; }
+.feat { background:#fff; border-radius:22px; padding:26px; display:flex; flex-direction:column; gap:10px; }
+.feat h3 { margin:0; font-size:19px; }
+
+.faq { max-width:820px; display:flex; flex-direction:column; gap:14px; }
+.faq details { background:var(--bg); border-radius:18px; padding:22px 24px; }
+.faq summary { list-style:none; cursor:pointer; font-size:18px; font-weight:700; }
+.faq summary::-webkit-details-marker { display:none; }
+.faq details p { margin:12px 0 0; font-size:16px; line-height:1.85; color:var(--muted); }
+
+.lp-cta .wrap { background:var(--brand); color:#fff; border-radius:32px; padding:64px 32px; display:flex; flex-direction:column; align-items:center; gap:22px; text-align:center; }
+.lp-cta h2 { margin:0; font-family:var(--disp); font-weight:700; font-size:clamp(30px, 5vw, 48px); line-height:1.3; text-wrap:balance; }
+.lp-cta .hl { background:linear-gradient(transparent 58%, rgba(255,224,102,.55) 58%, rgba(255,224,102,.55) 92%, transparent 92%); }
+.lp-cta p { margin:0; font-size:19px; line-height:1.8; color:#E4DAFF; max-width:560px; }
+.lp-cta a { background:#fff; color:var(--ink); }
+
+.lp-foot { padding:34px max(20px, env(safe-area-inset-right)) calc(44px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); border-top:1px solid var(--line); }
+.lp-foot .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; font-size:14px; color:var(--muted); }
+.lp-foot strong { color:var(--ink); direction:ltr; unicode-bidi:isolate; }
+.lp-foot a { color:var(--muted); }
+.lp-foot .fl-links { display:flex; gap:20px; flex-wrap:wrap; }
+
+.psum { display:flex; flex-direction:column; gap:2px; min-width:0; }
+.psum b { font-size:16px; }
+.psum span { font-size:13px; color:var(--muted); }
+
+@media (max-width: 760px) {
+  .nav .lk { display:none; }
+  .lp-sec { padding-top:64px; padding-bottom:64px; }
+  .hero-vis { height:470px; }
+  .sh-back, .fl-ats { display:none; }
+  .sh-front { width:300px; height:424px; margin-left:-150px; top:14px; transform:rotate(2deg); }
+  .fl-pdf { display:none; }
+  .tgrid { grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px; }
+  .tlabel { flex-wrap:wrap; }
+  .tlabel h3 { font-size:17px; }
+  .tuse { font-size:13px; }
+  .fl-score { right:0; top:auto; bottom:0; width:200px; }
+  #builder { padding-top:40px; }
+}
+@media (prefers-reduced-motion: reduce) { .tmock { transition:none; } }
+
+/* ============ CV PAGE ============ */
+.page { width:794px; min-height:1123px; background:#fff; color:#1B1F2A; font-family:var(--fb); font-size:13.5px; line-height:1.65;
+  box-shadow:0 10px 30px rgba(18,24,38,.18); --a:#1F3A5F;
+  --fb:'IBM Plex Sans Arabic', Tahoma, sans-serif; --fh:'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.page * { box-sizing:border-box; }
+.page h1, .page h2, .page h3, .page p, .page ul { margin:0; }
+.page ul { padding:0; list-style:none; }
+.page bdi { unicode-bidi:isolate; }
+.page .ph-empty { color:#B6BCC8; }
+.cv-sec { margin-top:22px; }
+.cv-sec > h2 { font-family:var(--fh); font-size:15.5px; font-weight:700; color:var(--a); margin-bottom:8px; }
+.cv-item { break-inside:avoid; margin-top:12px; }
+.cv-body > .cv-item:first-child { margin-top:0; }
+.cv-top { display:flex; justify-content:space-between; align-items:baseline; gap:14px; }
+.cv-top b { font-size:14.5px; }
+.cv-date { font-size:12px; color:#6B7280; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.cv-org { font-size:13px; color:#4B5563; font-weight:600; }
+.cv-note { font-size:12.5px; color:#6B7280; }
+.cv-bul { margin-top:6px !important; display:flex; flex-direction:column; gap:3px; }
+.cv-bul li { position:relative; padding-inline-start:16px; }
+.cv-bul li::before { content:""; position:absolute; inset-inline-start:2px; top:.72em; width:6px; height:6px; border-radius:50%; background:var(--a); }
+.cv-sum { text-align:justify; }
+.cv-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.cv-tags span { border-radius:6px; padding:3px 10px 4px; font-size:12.5px; font-weight:600; }
+.cv-langs { display:flex; flex-direction:column; gap:7px; }
+.cv-langs li { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.cv-langs small { display:block; font-size:11.5px; opacity:.75; }
+.dots { display:flex; gap:4px; flex:none; }
+.dots i { width:8px; height:8px; border-radius:50%; background:currentColor; opacity:.25; }
+.dots i.on { opacity:1; }
+.cv-cert b { display:block; font-size:13.5px; }
+.cv-inline { line-height:1.9; }
+.ini { display:flex; align-items:center; justify-content:center; font-family:var(--fh); font-weight:700; }
+
+/* modern */
+.t-modern { display:flex; align-items:stretch; }
+.t-modern[dir="rtl"] { background:linear-gradient(to left, var(--a) 0 31%, #fff 31%); }
+.t-modern[dir="ltr"] { background:linear-gradient(to right, var(--a) 0 31%, #fff 31%); }
+.t-modern .side { width:31%; flex:none; padding:42px 26px; color:#fff; }
+.t-modern .main { flex:1; min-width:0; padding:46px 40px; }
+.t-modern .ph { width:136px; height:136px; border-radius:50%; object-fit:cover; display:block; margin:0 auto 26px; border:4px solid rgba(255,255,255,.35); }
+.t-modern .ph.ini { display:flex; background:rgba(255,255,255,.16); font-size:44px; color:#fff; }
+.t-modern .side h3 { font-size:13.5px; font-weight:700; padding-bottom:6px; margin-bottom:10px; border-bottom:1px solid rgba(255,255,255,.3); }
+.t-modern .sblock + .sblock { margin-top:24px; }
+.t-modern .contact li { display:flex; align-items:flex-start; gap:8px; font-size:12.5px; margin-top:8px; overflow-wrap:anywhere; }
+.t-modern .contact svg { flex:none; margin-top:3px; opacity:.85; }
+.t-modern .cv-tags span { background:rgba(255,255,255,.16); color:#fff; }
+.t-modern h1 { font-family:var(--fh); font-size:32px; line-height:1.25; color:#111827; }
+.t-modern .role { font-size:17px; color:var(--a); font-weight:600; margin-top:4px; }
+.t-modern .main .cv-sec > h2 { display:flex; align-items:center; gap:10px; }
+.t-modern .main .cv-sec > h2::after { content:""; flex:1; height:2px; background:var(--a); opacity:.15; }
+
+/* classic */
+.t-classic { padding:52px 60px; --fh:'Noto Naskh Arabic', 'IBM Plex Sans Arabic', serif; }
+.t-classic[dir="ltr"] { --fh:Georgia, 'Times New Roman', serif; }
+.t-classic header { text-align:center; padding-bottom:16px; border-bottom:2px solid var(--a); }
+.t-classic h1 { font-family:var(--fh); font-size:34px; line-height:1.3; }
+.t-classic .role { font-size:16px; color:var(--a); font-weight:600; margin-top:2px; }
+.t-classic .cline { margin-top:10px; font-size:12.5px; color:#4B5563; display:flex; flex-wrap:wrap; justify-content:center; gap:4px 16px; }
+.t-classic .cv-sec > h2 { font-size:17.5px; border-bottom:1px solid #D1D5DB; padding-bottom:4px; margin-bottom:10px; }
+
+/* creative */
+.t-creative { display:flex; flex-direction:column; --fh:'Readex Pro', 'IBM Plex Sans Arabic', sans-serif; }
+.t-creative .band { background:var(--a); color:#fff; padding:40px 44px 34px; display:flex; align-items:center; gap:26px; }
+.t-creative .ph { width:118px; height:118px; border-radius:24px; object-fit:cover; flex:none; border:4px solid rgba(255,255,255,.35); }
+.t-creative .ph.ini { display:flex; background:rgba(255,255,255,.16); font-size:40px; color:#fff; }
+.t-creative h1 { font-family:var(--fh); font-size:34px; line-height:1.2; }
+.t-creative .role { font-size:17px; opacity:.92; margin-top:4px; font-weight:500; }
+.t-creative .chipsl { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.t-creative .chipsl span { background:rgba(255,255,255,.15); border-radius:999px; padding:3px 12px 5px; font-size:12px; }
+.t-creative .body { flex:1; display:grid; grid-template-columns:minmax(0, 1fr) 35%; }
+.t-creative .main { padding:10px 40px 40px; padding-inline-end:28px; }
+.t-creative .aside { background:color-mix(in srgb, var(--a) 7%, #fff); padding:10px 26px 40px; }
+.t-creative .cv-sec > h2 { display:flex; align-items:center; gap:8px; }
+.t-creative .cv-sec > h2::before { content:""; width:10px; height:10px; border-radius:3px; background:var(--a); }
+.t-creative .cv-tags span { background:#fff; color:var(--a); border:1px solid color-mix(in srgb, var(--a) 25%, #fff); }
+.t-creative .cv-langs { color:var(--a); }
+.t-creative .aside .cv-top { flex-direction:column; gap:0; }
+.t-creative .cv-langs span:first-child { color:#1B1F2A; }
+
+/* minimal */
+.t-minimal { padding:56px 60px; }
+.t-minimal h1 { font-family:var(--fh); font-size:38px; line-height:1.2; letter-spacing:-.01em; }
+.t-minimal .role { color:var(--a); font-size:17px; font-weight:600; margin-top:4px; }
+.t-minimal .cline { margin-top:12px; font-size:12.5px; color:#4B5563; display:flex; flex-wrap:wrap; gap:4px 18px; }
+.t-minimal .cv-sec { display:grid; grid-template-columns:128px minmax(0, 1fr); gap:20px; padding-top:18px; margin-top:20px; border-top:1px solid #E5E7EB; }
+.t-minimal .cv-sec > h2 { font-size:13px; letter-spacing:.06em; text-transform:uppercase; margin:2px 0 0; }
+
+@page { size:A4; margin:0; }
+@media print {
+  html, body { background:#fff !important; }
+  body > *:not(#builder) { display:none !important; }
+  #builder > *:not(.layout) { display:none !important; }
+  #builder { padding:0 !important; border:0 !important; background:#fff !important; }
+  .layout { display:block; padding:0; margin:0; max-width:none; }
+  .editor, .ptools { display:none !important; }
+  .preview { display:block !important; position:static; }
+  .stage { background:none; padding:0; border-radius:0; max-height:none; overflow:visible; }
+  .scaler { width:auto !important; height:auto !important; }
+  #page { position:static; transform:none !important; box-shadow:none; width:210mm; min-height:calc(var(--pages, 1) * 297mm - 2px) !important; }
+  .pb { display:none; }
+}
+</style>
+</head>
+<body data-view="edit">
+
+<header class="top" id="top">
+  <div class="wrap topin">
+    <a class="logo" href="#top"><i aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></i>سيرتي</a>
+    <nav class="nav" aria-label="القائمة">
+      <a class="lk" href="#templates">القوالب</a>
+      <a class="lk" href="#how">طريقة الاستخدام</a>
+      <a class="lk" href="#faq">الأسئلة الشائعة</a>
+      <a class="btn btn-ink" href="#builder">ابدأ سيرتك</a>
+    </nav>
+  </div>
+</header>
+
+<section class="lp-hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="live"><i></i>مجاني بالكامل · بدون تسجيل</span>
+      <h1>سيرة ذاتية <span class="hl">تلفت النظر</span>، بالعربي والإنجليزي</h1>
+      <p>اكتب بياناتك وشوف سيرتك تتشكّل قدامك. قوالب من تصميم مصمم محترف، جاهزة لأنظمة التوظيف، وتحمّلها PDF بضغطة.</p>
+      <div class="cta-row">
+        <a class="btn btn-main btn-big" href="#builder">ابدأ سيرتك مجاناً<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg></a>
+        <a class="btn btn-line btn-big" href="#templates">شوف القوالب</a>
+      </div>
+      <div class="proof">
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>٤ قوالب احترافية</span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>PDF جاهز للتقديم</span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>بياناتك تبقى في جهازك</span>
+      </div>
+    </div>
+
+    <div class="hero-vis" aria-hidden="true">
+      <div class="sh sh-back">
+        <div style="height:120px;background:#6B2BF0;padding:26px;display:flex;align-items:center;gap:16px"><div style="width:66px;height:66px;border-radius:16px;background:rgba(255,255,255,.2)"></div><div style="display:flex;flex-direction:column;gap:8px"><div style="width:140px;height:12px;border-radius:6px;background:#fff"></div><div style="width:90px;height:8px;border-radius:4px;background:rgba(255,255,255,.6)"></div></div></div>
+        <div style="display:flex;height:389px"><div style="flex:1;padding:22px;display:flex;flex-direction:column;gap:10px"><div style="width:40%;height:9px;border-radius:4px;background:#6B2BF0"></div><div class="ln"></div><div class="ln" style="width:85%"></div><div class="ln" style="width:92%"></div><div style="width:40%;height:9px;border-radius:4px;background:#6B2BF0;margin-top:14px"></div><div class="ln"></div><div class="ln" style="width:78%"></div></div><div style="width:34%;background:#F1ECFE"></div></div>
+      </div>
+      <div class="sh sh-front">
+        <div style="width:32%;background:#1F3A5F;padding:28px 14px;display:flex;flex-direction:column;align-items:center;gap:12px">
+          <div style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.18);border:3px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--disp);font-weight:700;font-size:22px">س ع</div>
+          <div style="align-self:stretch;height:1px;background:rgba(255,255,255,.3);margin-top:8px"></div>
+          <div style="align-self:stretch;height:5px;border-radius:3px;background:rgba(255,255,255,.5)"></div>
+          <div style="align-self:stretch;height:5px;border-radius:3px;background:rgba(255,255,255,.5);width:80%"></div>
+          <div style="align-self:stretch;display:flex;flex-wrap:wrap;gap:5px;margin-top:12px"><span style="width:40px;height:14px;border-radius:4px;background:rgba(255,255,255,.18)"></span><span style="width:28px;height:14px;border-radius:4px;background:rgba(255,255,255,.18)"></span><span style="width:48px;height:14px;border-radius:4px;background:rgba(255,255,255,.18)"></span><span style="width:34px;height:14px;border-radius:4px;background:rgba(255,255,255,.18)"></span></div>
+        </div>
+        <div style="flex:1;min-width:0;padding:28px 20px;display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:var(--disp);font-weight:700;font-size:21px;line-height:1.2">سارة العتيبي</div>
+          <div style="font-size:12px;font-weight:600;color:#1F3A5F">مصممة تجربة مستخدم</div>
+          <div style="font-size:11px;font-weight:700;color:#1F3A5F;margin-top:12px">نبذة عني</div>
+          <div class="ln"></div><div class="ln" style="width:90%"></div>
+          <div style="font-size:11px;font-weight:700;color:#1F3A5F;margin-top:12px">الخبرات العملية</div>
+          <div style="font-size:10.5px;font-weight:700">مصممة تجربة مستخدم أولى</div>
+          <div class="ln" style="width:92%"></div><div class="ln" style="width:76%"></div><div class="ln" style="width:84%"></div>
+          <div style="font-size:10.5px;font-weight:700;margin-top:6px">مصممة واجهات</div>
+          <div class="ln" style="width:88%"></div><div class="ln" style="width:64%"></div>
+          <div style="font-size:11px;font-weight:700;color:#1F3A5F;margin-top:12px">التعليم</div>
+          <div class="ln" style="width:70%"></div>
+        </div>
+      </div>
+      <div class="fl fl-score">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px;font-weight:700">قوة سيرتك</span><span style="font-family:var(--disp);font-weight:700;font-size:28px;color:#15803D">92٪</span></div>
+        <div style="height:8px;border-radius:4px;background:#EEF0F5;overflow:hidden"><div style="width:92%;height:100%;background:#15803D"></div></div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">اذكر أرقاماً في إنجازاتك عشان تلفت نظر المسؤول</div>
+      </div>
+      <div class="fl fl-pdf"><b>PDF</b>صفحة وحدة · جاهزة</div>
+      <div class="fl fl-ats"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E1020" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>متوافقة مع أنظمة التوظيف ATS</div>
+    </div>
+  </div>
+</section>
+
+<section id="builder" aria-labelledby="bT">
+<div class="bhead"><div class="wrap">
+  <span class="eyebrow">ابدأ الحين</span>
+  <h2 class="lp-h2" id="bT">اكتب سيرتك، وشوفها تتشكّل قدامك</h2>
+  <p class="lp-lead">حطّينا لك مثالاً جاهزاً عشان تشوف الشكل. عدّل عليه مباشرة، أو اضغط «سيرة جديدة» تحت وابدأ من الصفر.</p>
+</div></div>
+
+<nav class="tabs" aria-label="العرض">
+  <button type="button" data-view-btn="edit" aria-pressed="true">تعديل</button>
+  <button type="button" data-view-btn="preview" aria-pressed="false">معاينة وتحميل</button>
+</nav>
+
+<main class="layout">
+  <section class="editor" aria-label="تعديل السيرة">
+
+    <div class="card">
+      <div class="str-top"><div><h2>قوة سيرتك</h2><p id="strLabel"></p></div><b id="strNum">0٪</b></div>
+      <div class="bar"><i id="strBar"></i></div>
+      <ul id="strTips"></ul>
+    </div>
+
+    <div class="card" id="design">
+      <h2>التصميم</h2>
+      <div class="tpls">
+        <button type="button" class="tpl" data-tpl="modern"><span class="mini m-modern"><i></i><i></i><i></i><i></i><i></i></span>عصري</button>
+        <button type="button" class="tpl" data-tpl="classic"><span class="mini m-classic"><i></i><i></i><i></i><i></i><i></i></span>كلاسيكي</button>
+        <button type="button" class="tpl" data-tpl="creative"><span class="mini m-creative"><i></i><i></i><i></i><i></i><i></i></span>مبدع</button>
+        <button type="button" class="tpl" data-tpl="minimal"><span class="mini m-minimal"><i></i><i></i><i></i><i></i><i></i></span>بسيط</button>
+      </div>
+      <div class="drow"><span class="lbl">اللون</span><div class="sw" id="swatches"></div></div>
+      <div class="drow"><span class="lbl">لغة السيرة</span><div class="seg"><button type="button" data-lang="ar">العربية</button><button type="button" data-lang="en">English</button></div></div>
+      <p class="note" id="tplNote"></p>
+    </div>
+
+    <details class="sec" open>
+      <summary>البيانات الشخصية</summary>
+      <div class="sec-b">
+        <div class="photo-row">
+          <div class="pp" id="photoPrev"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div>
+          <div>
+            <div class="acts"><label class="btn btn-line" for="photoIn">إضافة صورة</label><button type="button" class="btn btn-soft" id="photoDel" hidden>إزالة</button></div>
+            <p class="hint" style="margin-top:6px">اختيارية. تظهر في قالبي «عصري» و«مبدع».</p>
+          </div>
+          <input id="photoIn" type="file" accept="image/*" hidden>
+        </div>
+        <div class="g2">
+          <label class="f"><span>الاسم الكامل</span><input id="f-name" data-path="p.name" autocomplete="name"></label>
+          <label class="f"><span>المسمى الوظيفي</span><input id="f-title" data-path="p.title" placeholder="مثلاً: محاسب، مهندس برمجيات"></label>
+        </div>
+        <div class="g2">
+          <label class="f"><span>البريد الإلكتروني</span><input id="f-email" type="email" dir="ltr" data-path="p.email" autocomplete="email" placeholder="name@email.com"></label>
+          <label class="f"><span>الجوال</span><input id="f-phone" type="tel" dir="ltr" data-path="p.phone" autocomplete="tel" placeholder="+966 5X XXX XXXX"></label>
+        </div>
+        <div class="g2">
+          <label class="f"><span>المدينة</span><input id="f-city" data-path="p.city" placeholder="الرياض"></label>
+          <label class="f"><span>لينكدإن أو موقعك</span><input id="f-link" dir="ltr" data-path="p.link" placeholder="linkedin.com/in/..."></label>
+        </div>
+      </div>
+    </details>
+
+    <details class="sec" open>
+      <summary>النبذة</summary>
+      <div class="sec-b">
+        <label class="f"><span>اكتب عن نفسك في سطرين أو ثلاثة</span><textarea id="f-summary" data-path="summary" rows="4" placeholder="مثلاً: محاسب بخبرة 4 سنوات في إعداد القوائم المالية..."></textarea></label>
+        <p class="hint" id="sumCount"></p>
+      </div>
+    </details>
+
+    <details class="sec" open>
+      <summary>الخبرات العملية <span class="cnt" id="cnt-exp">0</span></summary>
+      <div class="sec-b"><div id="list-exp" class="sec-b" style="padding:0"></div><button type="button" class="add" data-add="exp">+ إضافة خبرة</button></div>
+    </details>
+
+    <details class="sec">
+      <summary>التعليم <span class="cnt" id="cnt-edu">0</span></summary>
+      <div class="sec-b"><div id="list-edu" class="sec-b" style="padding:0"></div><button type="button" class="add" data-add="edu">+ إضافة مؤهل</button></div>
+    </details>
+
+    <details class="sec">
+      <summary>المهارات <span class="cnt" id="cnt-skills">0</span></summary>
+      <div class="sec-b">
+        <div class="skill-in f"><input id="skillIn" placeholder="اكتب مهارة واضغط إضافة" enterkeyhint="done"><button type="button" class="btn btn-soft" id="skillAdd">إضافة</button></div>
+        <div class="chips" id="skillChips"></div>
+        <p class="hint">اقتراحات:</p>
+        <div class="chips" id="skillSug"></div>
+      </div>
+    </details>
+
+    <details class="sec">
+      <summary>اللغات <span class="cnt" id="cnt-langs">0</span></summary>
+      <div class="sec-b"><div id="list-langs" class="sec-b" style="padding:0"></div><button type="button" class="add" data-add="langs">+ إضافة لغة</button></div>
+    </details>
+
+    <details class="sec">
+      <summary>الشهادات والدورات <span class="cnt" id="cnt-certs">0</span></summary>
+      <div class="sec-b"><div id="list-certs" class="sec-b" style="padding:0"></div><button type="button" class="add" data-add="certs">+ إضافة شهادة</button></div>
+    </details>
+
+    <div class="card">
+      <h2>الحفظ</h2>
+      <p class="hint" style="margin-top:6px">السيرة تنحفظ تلقائياً في هذا الجهاز. تبي تنقلها لجهاز ثاني؟ احفظ نسخة وافتحها هناك.</p>
+      <div class="tools">
+        <button type="button" class="btn btn-line" data-tool="export">حفظ نسخة</button>
+        <label class="btn btn-line" for="importIn">فتح نسخة</label>
+        <button type="button" class="btn btn-line" data-tool="sample">عرض مثال</button>
+        <button type="button" class="btn btn-soft" data-tool="new">سيرة جديدة</button>
+        <input id="importIn" type="file" accept="application/json,.json" hidden>
+      </div>
+      <p id="saved" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="preview" aria-label="معاينة السيرة">
+    <div class="ptools">
+      <div class="psum"><b>سيرتك جاهزة</b><span id="pSummary"></span><span id="pageCount"></span></div>
+      <button type="button" class="btn btn-main" data-dl><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>تحميل PDF</button>
+    </div>
+    <div class="stage" id="stage"><div class="scaler" id="scaler"><article id="page" class="page"></article></div></div>
+  </section>
+</main>
+</section>
+
+<section class="lp-sec lp-white" id="how">
+  <div class="wrap">
+    <span class="eyebrow">طريقة الاستخدام</span>
+    <h2 class="lp-h2">ثلاث خطوات، وسيرتك جاهزة</h2>
+    <div class="steps">
+      <div class="step"><b>١</b><h3>اكتب بياناتك</h3><p>خبراتك وتعليمك ومهاراتك، وكل شي ينحفظ تلقائياً في جهازك وأنت تكتب.</p></div>
+      <div class="step"><b>٢</b><h3>اختر القالب واللون</h3><p>بدّل بين ٤ قوالب و٦ ألوان، وحوّل السيرة للإنجليزي بضغطة.</p></div>
+      <div class="step"><b>٣</b><h3>حمّلها PDF</h3><p>ملف بجودة الطباعة، نصّه قابل للقراءة في أنظمة التوظيف، وجاهز ترسله.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec" id="templates">
+  <div class="wrap">
+    <div class="thead">
+      <div>
+        <span class="eyebrow">القوالب</span>
+        <h2 class="lp-h2">قالب لكل مجال</h2>
+        <p class="lp-lead">للشركات الكبيرة اختر «كلاسيكي» أو «بسيط»، وللمجالات الإبداعية «عصري» أو «مبدع». اضغط على أي قالب وابدأ فيه.</p>
+      </div>
+      <div class="dotsrow" aria-hidden="true"><i style="background:#1F3A5F"></i><i style="background:#0F766E"></i><i style="background:#6B2BF0"></i><i style="background:#9F1D35"></i><i style="background:#111827"></i><i style="background:#C2410C"></i></div>
+    </div>
+    <div class="tgrid">
+      <button type="button" class="tcard" data-pick="modern">
+        <span class="tmock" aria-hidden="true" style="display:flex">
+          <span style="width:32%;background:#1F3A5F;padding:18px 10px;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.2)"></span><span style="align-self:stretch;height:4px;border-radius:2px;background:rgba(255,255,255,.45);margin-top:10px"></span><span style="align-self:stretch;height:4px;border-radius:2px;background:rgba(255,255,255,.45)"></span><span style="align-self:stretch;height:4px;border-radius:2px;background:rgba(255,255,255,.45);width:70%"></span></span>
+          <span style="flex:1;padding:20px 14px;display:flex;flex-direction:column;gap:7px"><span style="width:70%;height:10px;border-radius:4px;background:#0E1020"></span><span style="width:45%;height:6px;border-radius:3px;background:#1F3A5F"></span><span style="width:35%;height:6px;border-radius:3px;background:#1F3A5F;margin-top:12px"></span><span class="ln"></span><span class="ln" style="width:85%"></span><span class="ln" style="width:92%"></span><span style="width:35%;height:6px;border-radius:3px;background:#1F3A5F;margin-top:12px"></span><span class="ln"></span><span class="ln" style="width:76%"></span></span>
+        </span>
+        <span class="tlabel"><h3>عصري</h3><span>بصورة</span></span>
+        <span class="tuse">ابدأ بهذا القالب ←</span>
+      </button>
+      <button type="button" class="tcard" data-pick="classic">
+        <span class="tmock" aria-hidden="true" style="padding:24px 20px;display:flex;flex-direction:column;align-items:center;gap:8px">
+          <span style="width:55%;height:11px;border-radius:4px;background:#0E1020"></span><span style="width:35%;height:6px;border-radius:3px;background:#0F766E"></span><span style="width:70%;height:4px;border-radius:2px;background:#C9CCD8"></span>
+          <span style="align-self:stretch;height:2px;background:#0F766E;margin:6px 0"></span>
+          <span style="align-self:flex-end;width:30%;height:6px;border-radius:3px;background:#0F766E;margin-top:6px"></span><span class="ln" style="align-self:stretch"></span><span class="ln" style="align-self:stretch"></span>
+          <span style="align-self:flex-end;width:30%;height:6px;border-radius:3px;background:#0F766E;margin-top:10px"></span><span class="ln" style="align-self:stretch"></span><span class="ln" style="align-self:stretch;width:80%"></span>
+        </span>
+        <span class="tlabel"><h3>كلاسيكي</h3><span>الأنسب لـ ATS</span></span>
+        <span class="tuse">ابدأ بهذا القالب ←</span>
+      </button>
+      <button type="button" class="tcard" data-pick="creative">
+        <span class="tmock" aria-hidden="true" style="display:flex;flex-direction:column">
+          <span style="height:24%;background:#6B2BF0;padding:16px;display:flex;align-items:center;gap:10px"><span style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.22)"></span><span style="flex:1;display:flex;flex-direction:column;gap:6px"><span style="width:70%;height:9px;border-radius:4px;background:#fff"></span><span style="width:45%;height:5px;border-radius:3px;background:rgba(255,255,255,.6)"></span></span></span>
+          <span style="flex:1;display:flex"><span style="flex:1;padding:14px;display:flex;flex-direction:column;gap:7px"><span style="width:40%;height:6px;border-radius:3px;background:#6B2BF0"></span><span class="ln"></span><span class="ln" style="width:88%"></span><span style="width:40%;height:6px;border-radius:3px;background:#6B2BF0;margin-top:10px"></span><span class="ln"></span></span><span style="width:35%;background:#F1ECFE"></span></span>
+        </span>
+        <span class="tlabel"><h3>مبدع</h3><span>بصورة</span></span>
+        <span class="tuse">ابدأ بهذا القالب ←</span>
+      </button>
+      <button type="button" class="tcard" data-pick="minimal">
+        <span class="tmock" aria-hidden="true" style="padding:24px 20px;display:flex;flex-direction:column;gap:8px">
+          <span style="width:65%;height:13px;border-radius:4px;background:#0E1020"></span><span style="width:35%;height:6px;border-radius:3px;background:#9F1D35"></span>
+          <span style="display:grid;grid-template-columns:26% minmax(0,1fr);gap:10px;border-top:1px solid #E3E5EE;padding-top:12px;margin-top:10px"><span style="height:5px;border-radius:2px;background:#9F1D35"></span><span style="display:flex;flex-direction:column;gap:6px"><span class="ln"></span><span class="ln" style="width:85%"></span></span></span>
+          <span style="display:grid;grid-template-columns:26% minmax(0,1fr);gap:10px;border-top:1px solid #E3E5EE;padding-top:12px"><span style="height:5px;border-radius:2px;background:#9F1D35"></span><span style="display:flex;flex-direction:column;gap:6px"><span class="ln"></span><span class="ln" style="width:90%"></span><span class="ln" style="width:70%"></span></span></span>
+        </span>
+        <span class="tlabel"><h3>بسيط</h3><span>الأنسب لـ ATS</span></span>
+        <span class="tuse">ابدأ بهذا القالب ←</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec lp-dark sband">
+  <div class="wrap">
+    <div class="stx">
+      <span class="eyebrow">مستشارك الشخصي</span>
+      <h2 class="lp-h2">نقيّم سيرتك، ونقول لك كيف تقوّيها</h2>
+      <p class="lp-lead">مؤشر «قوة سيرتك» يتحدث مع كل كلمة تكتبها، ويعطيك نصائح محددة: نبذة قصيرة؟ إنجازات بدون أرقام؟ مهارات ناقصة؟ تعرف فوراً.</p>
+    </div>
+    <div class="scard" aria-label="مثال على تقييم سيرة">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><div style="font-size:20px;font-weight:700">قوة سيرتك</div><div style="font-size:15px;font-weight:600;color:#B45309;margin-top:2px">جيدة، وتقدر تصير أقوى</div></div>
+        <div style="font-family:var(--disp);font-weight:700;font-size:56px;line-height:1;color:#B45309">68٪</div>
+      </div>
+      <div style="height:12px;border-radius:6px;background:#EEF0F5;overflow:hidden"><div style="width:68%;height:100%;background:#B45309"></div></div>
+      <div class="tipx"><i>١</i>اذكر أرقاماً في إنجازاتك، مثل «رفعت المبيعات 20%»</div>
+      <div class="tipx"><i>٢</i>طوّل النبذة شوي، سطرين إلى ثلاثة</div>
+      <div class="tipx"><i>٣</i>أضف مهارتين أخرى على الأقل</div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec">
+  <div class="wrap">
+    <h2 class="lp-h2" style="max-width:640px">كل اللي تحتاجه، بدون تعقيد</h2>
+    <div class="fgrid">
+      <div class="feat"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><h3>معاينة مباشرة</h3><p>تشوف السيرة على ورقة A4 وأنت تكتب، مع تنبيه إذا زادت عن صفحة.</p></div>
+      <div class="feat"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 6 8"/><path d="M11 5c-1 4-4 7-7 8"/><path d="M13 21l4-10 4 10M14.5 17h5"/></svg><h3>عربي وإنجليزي</h3><p>بضغطة تحوّل السيرة للإنجليزي، والاتجاه والعناوين تتعدل تلقائياً.</p></div>
+      <div class="feat"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><h3>خصوصية كاملة</h3><p>ما نرفع بياناتك لأي مكان. كل شي يبقى في جهازك، وتقدر تنقله بنسخة.</p></div>
+      <div class="feat"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 14l2 2 4-4"/></svg><h3>جاهزة لأنظمة التوظيف</h3><p>الـ PDF فيه نص حقيقي، فأنظمة الفرز ATS تقرأ اسمك وخبراتك صح.</p></div>
+      <div class="feat"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg><h3>مصمم للجوال</h3><p>اكتب سيرتك كاملة من جوالك، وحمّلها PDF في الملفات مباشرة.</p></div>
+      <div class="feat"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6B2BF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg><h3>حفظ تلقائي</h3><p>سكّرت الصفحة؟ ارجع لها وتلقى سيرتك مثل ما تركتها.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec lp-white" id="faq">
+  <div class="wrap faq">
+    <h2 class="lp-h2" style="text-align:center;margin-bottom:20px">أسئلة شائعة</h2>
+    <details open><summary>هل الموقع مجاني فعلاً؟</summary><p>نعم. تكتب سيرتك وتحمّلها PDF بدون أي رسوم وبدون تسجيل.</p></details>
+    <details><summary>وش يعني متوافقة مع ATS؟</summary><p>أغلب الشركات الكبيرة تستخدم أنظمة تفرز السير آلياً. قوالبنا تطلع PDF بنص حقيقي ومرتب يقدر النظام يقرأه.</p></details>
+    <details><summary>وين تنحفظ بياناتي؟</summary><p>في متصفح جهازك فقط. ما عندنا خوادم تخزن أي شي. تبي تنقلها لجهاز ثاني؟ استخدم زر «حفظ نسخة».</p></details>
+    <details><summary>كيف أحمّل السيرة من الآيفون؟</summary><p>اضغط «تحميل PDF»، وبعدها زر المشاركة ← «حفظ في الملفات».</p></details>
+  </div>
+</section>
+
+<section class="lp-sec lp-cta">
+  <div class="wrap">
+    <h2>وظيفتك الجاية تبدأ <span class="hl">بسيرة قوية</span></h2>
+    <p>ابدأ الحين، وخلال دقائق تكون سيرتك جاهزة ترسلها.</p>
+    <a class="btn btn-big" href="#builder">ابدأ سيرتك مجاناً</a>
+  </div>
+</section>
+
+<footer class="lp-foot">
+  <div class="wrap">
+    <span><b style="font-family:var(--disp);font-size:18px;color:var(--ink)">سيرتي</b> · صُمّم بواسطة <strong>MSHARIDSN</strong></span>
+    <span class="fl-links"><a href="privacy.html">سياسة الخصوصية</a><a href="terms.html">شروط الاستخدام</a></span>
+  </div>
+</footer>
+
+<div class="sheet-bg" id="iosSheet" hidden>
+  <div class="sheet" role="dialog" aria-labelledby="iosT">
+    <h3 id="iosT">طريقة الحفظ في الآيفون</h3>
+    <ol>
+      <li>بتفتح لك صفحة الطباعة.</li>
+      <li>اضغط زر <b>المشاركة</b> فوق.</li>
+      <li>اختر <b>حفظ في الملفات</b>، وتصير السيرة عندك PDF.</li>
+    </ol>
+    <button type="button" class="btn btn-main" id="iosGo">تمام، افتح</button>
+    <button type="button" class="btn btn-soft" id="iosCancel">إلغاء</button>
+  </div>
+</div>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const KEY = 'sirati.cv.v1';
+const TITLE = document.title;
+const PW = 794, PH = 1122.5, TOPPAD = 46, BOTPAD = 42;
+const COLORS = ['#1F3A5F', '#0F766E', '#6B2BF0', '#9F1D35', '#111827', '#C2410C'];
+const TPLS = ['modern', 'classic', 'creative', 'minimal'];
+const TPL_NAME = { modern: 'عصري', classic: 'كلاسيكي', creative: 'مبدع', minimal: 'بسيط' };
+const COLOR_NAME = { '#1F3A5F': 'كحلي', '#0F766E': 'أخضر', '#6B2BF0': 'بنفسجي', '#9F1D35': 'عنابي', '#111827': 'أسود', '#C2410C': 'برتقالي' };
+const NO_PHOTO = { classic: true, minimal: true };
+
+const L = {
+  ar: { summary: 'نبذة عني', exp: 'الخبرات العملية', edu: 'التعليم', skills: 'المهارات', langs: 'اللغات', certs: 'الشهادات والدورات',
+        contact: 'التواصل', present: 'حتى الآن', levels: ['مبتدئ', 'متوسط', 'متقدم', 'لغة أم'], name: 'اسمك الكامل', page: 'صفحة' },
+  en: { summary: 'Profile', exp: 'Experience', edu: 'Education', skills: 'Skills', langs: 'Languages', certs: 'Certifications',
+        contact: 'Contact', present: 'Present', levels: ['Basic', 'Intermediate', 'Advanced', 'Native'], name: 'Your Name', page: 'Page' },
+};
+const SUG = {
+  ar: ['العمل الجماعي', 'حل المشكلات', 'إدارة الوقت', 'التواصل الفعّال', 'القيادة', 'خدمة العملاء', 'إدارة المشاريع', 'التفكير التحليلي', 'Microsoft Excel', 'Power BI', 'Figma', 'Adobe Photoshop'],
+  en: ['Teamwork', 'Problem Solving', 'Time Management', 'Communication', 'Leadership', 'Customer Service', 'Project Management', 'Analytical Thinking', 'Microsoft Excel', 'Power BI', 'Figma', 'Adobe Photoshop'],
+};
+const SAMPLE = {
+  ar: { p: { name: 'سارة العتيبي', title: 'مصممة تجربة مستخدم', email: 'sara@example.com', phone: '+966 50 000 0000', city: 'الرياض', link: 'linkedin.com/in/example' },
+    summary: 'مصممة تجربة مستخدم بخبرة 5 سنوات في تصميم التطبيقات والمنصات الرقمية. أحوّل احتياجات المستخدمين إلى تجارب بسيطة وواضحة، وأعمل مع فرق المنتج والتطوير من الفكرة إلى الإطلاق.',
+    exp: [
+      { role: 'مصممة تجربة مستخدم أولى', company: 'شركة تقنية ناشئة', city: 'الرياض', start: '2022-03', end: '', current: true,
+        bullets: 'قدت إعادة تصميم تطبيق الجوال ورفعت تقييمه من 3.6 إلى 4.7 نجوم\nبنيت نظام تصميم موحّد يضم أكثر من 120 مكوّناً\nخفّضت خطوات التسجيل من 7 إلى 3 فزادت نسبة إكماله 38%' },
+      { role: 'مصممة واجهات', company: 'وكالة تسويق رقمي', city: 'جدة', start: '2020-01', end: '2022-02', current: false,
+        bullets: 'صممت أكثر من 30 موقعاً ومتجراً إلكترونياً لعملاء محليين\nأجريت اختبارات استخدام مع أكثر من 60 مستخدماً' },
+    ],
+    edu: [{ degree: 'بكالوريوس نظم المعلومات', school: 'جامعة الملك سعود', start: '2015-09', end: '2019-06', note: 'مع مرتبة الشرف' }],
+    skills: ['Figma', 'أبحاث المستخدم', 'تصميم الواجهات', 'النماذج التفاعلية', 'أنظمة التصميم', 'اختبارات الاستخدام'],
+    langs: [{ name: 'العربية', level: 3 }, { name: 'الإنجليزية', level: 2 }],
+    certs: [{ name: 'Google UX Design Certificate', issuer: 'Google', year: '2021' }] },
+  en: { p: { name: 'Sara Alotaibi', title: 'UX Designer', email: 'sara@example.com', phone: '+966 50 000 0000', city: 'Riyadh', link: 'linkedin.com/in/example' },
+    summary: 'UX designer with 5 years of experience designing apps and digital platforms. I turn user needs into simple, clear experiences and work with product and engineering teams from idea to launch.',
+    exp: [
+      { role: 'Senior UX Designer', company: 'Tech Startup', city: 'Riyadh', start: '2022-03', end: '', current: true,
+        bullets: 'Led the mobile app redesign, raising its rating from 3.6 to 4.7 stars\nBuilt a unified design system with 120+ components\nCut sign-up steps from 7 to 3, lifting completion by 38%' },
+      { role: 'UI Designer', company: 'Digital Marketing Agency', city: 'Jeddah', start: '2020-01', end: '2022-02', current: false,
+        bullets: 'Designed 30+ websites and online stores for local clients\nRan usability tests with 60+ users' },
+    ],
+    edu: [{ degree: 'BSc Information Systems', school: 'King Saud University', start: '2015-09', end: '2019-06', note: 'First Class Honors' }],
+    skills: ['Figma', 'User Research', 'UI Design', 'Prototyping', 'Design Systems', 'Usability Testing'],
+    langs: [{ name: 'Arabic', level: 3 }, { name: 'English', level: 2 }],
+    certs: [{ name: 'Google UX Design Certificate', issuer: 'Google', year: '2021' }] },
+};
+
+const clone = (o) => JSON.parse(JSON.stringify(o));
+function blank(keep) {
+  return { v: 1, isSample: false, lang: keep?.lang || 'ar', template: keep?.template || 'modern', color: keep?.color || COLORS[0], photo: '',
+    p: { name: '', title: '', email: '', phone: '', city: '', link: '' }, summary: '', exp: [], edu: [], skills: [], langs: [], certs: [] };
+}
+function sample(lang, keep) { return Object.assign(blank(keep), clone(SAMPLE[lang]), { isSample: true, lang }); }
+function normalize(d) {
+  const b = blank(d);
+  const out = Object.assign(b, d, { v: 1 });
+  out.p = Object.assign(blank().p, d.p || {});
+  for (const k of ['exp', 'edu', 'skills', 'langs', 'certs']) out[k] = Array.isArray(d[k]) ? d[k] : [];
+  if (!TPLS.includes(out.template)) out.template = 'modern';
+  if (!['ar', 'en'].includes(out.lang)) out.lang = 'ar';
+  return out;
+}
+function load() {
+  try { const raw = localStorage.getItem(KEY); if (raw) { const d = JSON.parse(raw); if (d && d.v === 1) return normalize(d); } } catch (e) {}
+  return null;
+}
+let S = load() || sample('ar');
+let saveT;
+function save() {
+  clearTimeout(saveT);
+  saveT = setTimeout(() => {
+    try { localStorage.setItem(KEY, JSON.stringify(S)); $('#saved').textContent = 'محفوظة تلقائياً في جهازك'; }
+    catch (e) { $('#saved').textContent = 'ما قدرنا نحفظ في هذا المتصفح، احفظ نسخة يدوياً.'; }
+  }, 300);
+}
+const getPath = (path) => path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), S);
+function setPath(path, val) { const ks = path.split('.'); let o = S; for (let i = 0; i < ks.length - 1; i++) o = o[ks[i]]; o[ks[ks.length - 1]] = val; }
+function touched() { if (S.isSample) S.isSample = false; }
+
+/* ---------- editor lists ---------- */
+const F = (k, f, label, type = 'text', ph = '') =>
+  `<label class="f"><span>${label}</span><input type="${type}" data-path="${k}.${f}" placeholder="${esc(ph)}"${type === 'month' ? ' dir="ltr"' : ''}></label>`;
+const LISTS = {
+  exp: { title: (i) => i.role || 'خبرة جديدة', sub: (i) => i.company,
+    make: () => ({ role: '', company: '', city: '', start: '', end: '', current: false, bullets: '' }),
+    fields: (k) => `<div class="g2">${F(k, 'role', 'المسمى الوظيفي')}${F(k, 'company', 'جهة العمل')}</div>
+      <div class="g2">${F(k, 'start', 'من', 'month', '2023-01')}${F(k, 'end', 'إلى', 'month', '2024-06')}</div>
+      <div class="g2">${F(k, 'city', 'المدينة')}<label class="chk"><input type="checkbox" data-path="${k}.current"> أعمل هنا حالياً</label></div>
+      <label class="f"><span>الإنجازات والمهام</span><textarea data-path="${k}.bullets" rows="4" placeholder="كل سطر نقطة. ابدأ بفعل واذكر أرقاماً، مثلاً: رفعت المبيعات 20%"></textarea></label>` },
+  edu: { title: (i) => i.degree || 'مؤهل جديد', sub: (i) => i.school,
+    make: () => ({ degree: '', school: '', start: '', end: '', note: '' }),
+    fields: (k) => `<div class="g2">${F(k, 'degree', 'المؤهل والتخصص', 'text', 'بكالوريوس محاسبة')}${F(k, 'school', 'الجامعة أو المعهد')}</div>
+      <div class="g2">${F(k, 'start', 'من', 'month', '2018-09')}${F(k, 'end', 'إلى', 'month', '2022-06')}</div>
+      ${F(k, 'note', 'ملاحظة (اختياري)', 'text', 'المعدل، مرتبة الشرف...')}` },
+  langs: { title: (i) => i.name || 'لغة جديدة', sub: (i) => L.ar.levels[i.level ?? 2],
+    make: () => ({ name: '', level: 2 }),
+    fields: (k) => `<div class="g2">${F(k, 'name', 'اللغة', 'text', 'الإنجليزية')}<label class="f"><span>المستوى</span><select data-path="${k}.level">${L.ar.levels.map((l, i) => `<option value="${i}">${l}</option>`).join('')}</select></label></div>` },
+  certs: { title: (i) => i.name || 'شهادة جديدة', sub: (i) => [i.issuer, i.year].filter(Boolean).join(' · '),
+    make: () => ({ name: '', issuer: '', year: '' }),
+    fields: (k) => `${F(k, 'name', 'اسم الشهادة أو الدورة')}<div class="g2">${F(k, 'issuer', 'الجهة')}${F(k, 'year', 'السنة', 'text', '2024')}</div>` },
+};
+const openSet = new WeakSet();
+function fill(root) {
+  $$('[data-path]', root).forEach((el) => {
+    const v = getPath(el.dataset.path);
+    if (el.type === 'checkbox') el.checked = !!v; else el.value = v ?? '';
+    if (el.dataset.path.endsWith('.end')) { const cur = getPath(el.dataset.path.replace(/end$/, 'current')); el.disabled = !!cur; }
+  });
+}
+function renderList(name) {
+  const box = $('#list-' + name), cfg = LISTS[name], arr = S[name];
+  box.innerHTML = arr.map((it, i) => `<div class="it${openSet.has(it) ? ' open' : ''}" data-list="${name}" data-i="${i}">
+    <div class="it-h"><button type="button" class="it-t" data-act="toggle" aria-expanded="${openSet.has(it)}"><b>${esc(cfg.title(it))}</b><small>${esc(cfg.sub(it) || '')}</small></button>
+    <div class="it-a"><button type="button" data-act="up" aria-label="تحريك لفوق" ${i === 0 ? 'disabled' : ''}>↑</button><button type="button" data-act="down" aria-label="تحريك لتحت" ${i === arr.length - 1 ? 'disabled' : ''}>↓</button><button type="button" data-act="del" aria-label="حذف">✕</button></div></div>
+    <div class="it-b">${cfg.fields(name + '.' + i)}</div></div>`).join('');
+  fill(box);
+  $('#cnt-' + name).textContent = arr.length;
+}
+function renderSkills() {
+  $('#skillChips').innerHTML = S.skills.map((s, i) => `<span class="chip">${esc(s)}<button type="button" data-skill="${i}" aria-label="حذف ${esc(s)}">✕</button></span>`).join('') || '<span class="empty">ما أضفت مهارات للحين</span>';
+  $('#skillSug').innerHTML = SUG[S.lang].filter((s) => !S.skills.includes(s)).slice(0, 8).map((s) => `<button type="button" class="sug" data-sug="${esc(s)}">+ ${esc(s)}</button>`).join('');
+  $('#cnt-skills').textContent = S.skills.length;
+}
+function addSkill(v) {
+  v.split(/[،,]/).map((x) => x.trim()).filter(Boolean).forEach((x) => { if (!S.skills.includes(x)) S.skills.push(x); });
+  touched(); renderSkills(); schedule();
+}
+function renderPhoto() {
+  const pp = $('#photoPrev');
+  pp.style.backgroundImage = S.photo ? `url(${S.photo})` : '';
+  pp.firstElementChild.style.display = S.photo ? 'none' : '';
+  $('#photoDel').hidden = !S.photo;
+}
+function renderDesign() {
+  $('#design').style.setProperty('--c', S.color);
+  $$('[data-tpl]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.tpl === S.template));
+  $$('[data-color]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.color === S.color));
+  $$('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.lang === S.lang));
+  $('#tplNote').textContent = NO_PHOTO[S.template]
+    ? 'هذا القالب بدون صورة وبتنسيق بسيط، وهو الأنسب لأنظمة فرز السير الذاتية (ATS) في الشركات الكبيرة.'
+    : 'هذا القالب يعرض صورتك إذا أضفتها، ومناسب للتقديم المباشر وللمجالات الإبداعية.';
+}
+function renderSumCount() {
+  const n = S.summary.trim().length;
+  $('#sumCount').textContent = `${n} حرف${n < 120 ? ' · المثالي بين 150 و400 حرف' : n > 450 ? ' · طويلة شوي، حاول تختصرها' : ' · طول ممتاز'}`;
+}
+function renderAll() {
+  fill($('.editor'));
+  for (const n of Object.keys(LISTS)) renderList(n);
+  renderSkills(); renderPhoto(); renderDesign(); renderSumCount();
+  schedule();
+}
+
+/* ---------- strength ---------- */
+function strength() {
+  const s = S, tips = []; let sc = 0;
+  const add = (ok, pts, tip) => { if (ok) sc += pts; else if (tip) tips.push(tip); };
+  add(s.p.name.trim(), 10, 'اكتب اسمك الكامل');
+  add(s.p.title.trim(), 10, 'أضف مسمّاك الوظيفي تحت اسمك');
+  add(/\S+@\S+\.\S+/.test(s.p.email), 8, 'أضف بريدك الإلكتروني');
+  add(s.p.phone.replace(/\D/g, '').length >= 9, 7, 'أضف رقم جوالك');
+  const sl = s.summary.trim().length;
+  sc += sl >= 120 ? 15 : sl >= 40 ? 8 : 0;
+  if (sl < 120) tips.push(sl ? 'طوّل النبذة شوي، سطرين إلى ثلاثة' : 'اكتب نبذة قصيرة تعرّف فيها بنفسك');
+  const ex = s.exp.filter((x) => x.role.trim() && x.company.trim());
+  add(ex.length, 15, 'أضف خبرة عملية أو تدريب تعاوني');
+  const bl = ex.flatMap((x) => x.bullets.split('\n').filter((l) => l.trim()));
+  add(bl.length >= 2, 5, ex.length ? 'اكتب إنجازين على الأقل تحت خبراتك' : null);
+  add(bl.some((l) => /[0-9٠-٩]/.test(l)), 5, bl.length ? 'اذكر أرقاماً في إنجازاتك (نسبة، عدد، مدة)، تلفت نظر المسؤول' : null);
+  add(s.edu.some((x) => x.degree.trim()), 10, 'أضف مؤهلك الدراسي');
+  const sk = s.skills.length; sc += sk >= 5 ? 10 : sk >= 1 ? 5 : 0;
+  if (sk < 5) tips.push(sk ? `أضف ${5 - sk} مهارات أخرى على الأقل` : 'أضف 5 مهارات على الأقل');
+  add(s.langs.some((x) => x.name.trim()), 5, 'أضف اللغات اللي تتقنها');
+  return { score: Math.min(100, sc), tips };
+}
+function renderStrength() {
+  const { score, tips } = strength();
+  const col = score < 50 ? 'var(--bad)' : score < 80 ? 'var(--warn)' : 'var(--ok)';
+  $('#strNum').textContent = score + '٪'; $('#strNum').style.color = col;
+  $('#strBar').style.width = score + '%'; $('#strBar').style.background = col;
+  $('#strLabel').textContent = score < 50 ? 'تحتاج شغل' : score < 80 ? 'جيدة، وتقدر تصير أقوى' : score < 100 ? 'ممتازة!' : 'مثالية';
+  $('#strLabel').style.color = col;
+  $('#strTips').innerHTML = tips.slice(0, 3).map((t) => `<li>${esc(t)}</li>`).join('');
+}
+
+/* ---------- CV templates ---------- */
+const IC = {
+  mail: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  phone: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
+  pin: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+  link: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg>',
+};
+function contacts(s) {
+  const p = s.p, out = [];
+  if (p.email.trim()) out.push(['mail', p.email.trim()]);
+  if (p.phone.trim()) out.push(['phone', p.phone.trim()]);
+  if (p.city.trim()) out.push(['pin', p.city.trim()]);
+  if (p.link.trim()) out.push(['link', p.link.trim().replace(/^https?:\/\/(www\.)?/, '')]);
+  return out;
+}
+function fmtMonth(v, lang) {
+  if (!v) return '';
+  const [y, m] = String(v).split('-').map(Number);
+  if (!y) return String(v);
+  if (!m) return String(y);
+  return new Intl.DateTimeFormat(lang === 'ar' ? 'ar-u-ca-gregory-nu-latn' : 'en-US', { month: 'short', year: 'numeric' }).format(new Date(y, m - 1, 1));
+}
+function range(x, lang) {
+  const a = fmtMonth(x.start, lang), b = x.current ? L[lang].present : fmtMonth(x.end, lang);
+  return a && b ? `${a} – ${b}` : a || b;
+}
+function bullets(t) {
+  const ls = String(t || '').split('\n').map((l) => l.replace(/^\s*[-•*·]\s*/, '').trim()).filter(Boolean);
+  return ls.length ? `<ul class="cv-bul">${ls.map((l) => `<li>${esc(l)}</li>`).join('')}</ul>` : '';
+}
+const sec = (key, title, body) => (body ? `<section class="cv-sec cv-${key}"><h2>${title}</h2><div class="cv-body">${body}</div></section>` : '');
+const nameHTML = (s) => (s.p.name.trim() ? esc(s.p.name) : `<span class="ph-empty">${L[s.lang].name}</span>`);
+const roleHTML = (s) => (s.p.title.trim() ? `<div class="role">${esc(s.p.title)}</div>` : '');
+const sumBody = (s) => (s.summary.trim() ? `<p class="cv-sum">${esc(s.summary.trim())}</p>` : '');
+const expBody = (s) => s.exp.filter((x) => x.role.trim() || x.company.trim()).map((x) => `<div class="cv-item">
+  <div class="cv-top"><b>${esc(x.role)}</b><span class="cv-date">${esc(range(x, s.lang))}</span></div>
+  ${x.company || x.city ? `<div class="cv-org">${esc([x.company, x.city].filter((v) => v && v.trim()).join(' · '))}</div>` : ''}${bullets(x.bullets)}</div>`).join('');
+const eduBody = (s) => s.edu.filter((x) => x.degree.trim() || x.school.trim()).map((x) => `<div class="cv-item">
+  <div class="cv-top"><b>${esc(x.degree)}</b><span class="cv-date">${esc(range({ ...x, current: false }, s.lang))}</span></div>
+  ${x.school ? `<div class="cv-org">${esc(x.school)}</div>` : ''}${x.note ? `<p class="cv-note">${esc(x.note)}</p>` : ''}</div>`).join('');
+const certBody = (s) => s.certs.filter((x) => x.name.trim()).map((x) => `<div class="cv-item cv-cert"><b>${esc(x.name)}</b>${x.issuer || x.year ? `<span class="cv-org">${esc([x.issuer, x.year].filter((v) => v && String(v).trim()).join(' · '))}</span>` : ''}</div>`).join('');
+const tagsBody = (s) => (s.skills.length ? `<div class="cv-tags">${s.skills.map((k) => `<span>${esc(k)}</span>`).join('')}</div>` : '');
+const langsDots = (s) => {
+  const ls = s.langs.filter((x) => x.name.trim());
+  return ls.length ? `<ul class="cv-langs">${ls.map((x) => `<li><span>${esc(x.name)}<small>${L[s.lang].levels[x.level ?? 2]}</small></span><span class="dots">${[0, 1, 2, 3].map((i) => `<i class="${i <= (x.level ?? 2) ? 'on' : ''}"></i>`).join('')}</span></li>`).join('')}</ul>` : '';
+};
+const sepWord = (s) => (s.lang === 'ar' ? '، ' : ', ');
+const skillsInline = (s) => (s.skills.length ? `<p class="cv-inline">${s.skills.map(esc).join(' · ')}</p>` : '');
+const langsInline = (s) => {
+  const ls = s.langs.filter((x) => x.name.trim());
+  return ls.length ? `<p class="cv-inline">${ls.map((x) => `${esc(x.name)} (${L[s.lang].levels[x.level ?? 2]})`).join(sepWord(s))}</p>` : '';
+};
+const cline = (s) => contacts(s).map(([ic, v]) => `<span>${ic === 'pin' ? esc(v) : `<bdi>${esc(v)}</bdi>`}</span>`).join('');
+function initials(name) {
+  const w = name.trim().split(/\s+/).filter(Boolean);
+  return w.slice(0, 2).map((x) => x[0]).join(' ');
+}
+const photoHTML = (s, cls) => (s.photo ? `<img class="${cls}" src="${s.photo}" alt="">` : `<div class="${cls} ini">${esc(initials(s.p.name))}</div>`);
+
+const T = {
+  modern(s, l) {
+    const c = contacts(s);
+    return `<aside class="side">${photoHTML(s, 'ph')}
+      ${c.length ? `<div class="sblock"><h3>${l.contact}</h3><ul class="contact">${c.map(([ic, v]) => `<li>${IC[ic]}<span>${ic === 'pin' ? esc(v) : `<bdi>${esc(v)}</bdi>`}</span></li>`).join('')}</ul></div>` : ''}
+      ${s.skills.length ? `<div class="sblock"><h3>${l.skills}</h3>${tagsBody(s)}</div>` : ''}
+      ${langsDots(s) ? `<div class="sblock"><h3>${l.langs}</h3>${langsDots(s)}</div>` : ''}
+    </aside>
+    <div class="main"><header><h1>${nameHTML(s)}</h1>${roleHTML(s)}</header>
+      ${sec('sum', l.summary, sumBody(s))}${sec('exp', l.exp, expBody(s))}${sec('edu', l.edu, eduBody(s))}${sec('certs', l.certs, certBody(s))}</div>`;
+  },
+  classic(s, l) {
+    return `<header><h1>${nameHTML(s)}</h1>${roleHTML(s)}<div class="cline">${cline(s)}</div></header>
+      ${sec('sum', l.summary, sumBody(s))}${sec('exp', l.exp, expBody(s))}${sec('edu', l.edu, eduBody(s))}
+      ${sec('skills', l.skills, skillsInline(s))}${sec('langs', l.langs, langsInline(s))}${sec('certs', l.certs, certBody(s))}`;
+  },
+  creative(s, l) {
+    return `<div class="band">${photoHTML(s, 'ph')}<div><h1>${nameHTML(s)}</h1>${roleHTML(s)}<div class="chipsl">${cline(s)}</div></div></div>
+      <div class="body"><div class="main">${sec('sum', l.summary, sumBody(s))}${sec('exp', l.exp, expBody(s))}</div>
+      <div class="aside">${sec('skills', l.skills, tagsBody(s))}${sec('langs', l.langs, langsDots(s))}${sec('edu', l.edu, eduBody(s))}${sec('certs', l.certs, certBody(s))}</div></div>`;
+  },
+  minimal(s, l) {
+    return `<header><h1>${nameHTML(s)}</h1>${roleHTML(s)}<div class="cline">${cline(s)}</div></header>
+      ${sec('sum', l.summary, sumBody(s))}${sec('exp', l.exp, expBody(s))}${sec('edu', l.edu, eduBody(s))}
+      ${sec('skills', l.skills, skillsInline(s))}${sec('langs', l.langs, langsInline(s))}${sec('certs', l.certs, certBody(s))}`;
+  },
+};
+
+function renderCV() {
+  const page = $('#page');
+  page.className = 'page t-' + S.template;
+  page.dir = S.lang === 'ar' ? 'rtl' : 'ltr';
+  page.lang = S.lang;
+  page.style.setProperty('--a', S.color);
+  page.innerHTML = T[S.template](S, L[S.lang]);
+  page.style.minHeight = PH + 'px';
+  paginate(page);
+  const pages = Math.max(1, Math.ceil((page.scrollHeight - 2) / PH));
+  page.style.minHeight = pages * PH + 'px';
+  page.style.setProperty('--pages', pages);
+  for (let i = 1; i < pages; i++) {
+    const m = document.createElement('div');
+    m.className = 'pb'; m.style.top = i * PH + 'px';
+    m.innerHTML = `<span>${L[S.lang].page} ${i + 1}</span>`;
+    page.append(m);
+  }
+  const pc = $('#pageCount');
+  pc.innerHTML = pages === 1 ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-left:6px" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>صفحة وحدة' : `${pages} صفحات · حاول تختصرها لصفحة`;
+  pc.classList.toggle('warn', pages > 1);
+  $('#pSummary').textContent = `قالب ${TPL_NAME[S.template]} · ${COLOR_NAME[S.color] || ''} · ${S.lang === 'ar' ? 'العربية' : 'English'}`;
+  fit();
+}
+// Move any block that would be cut by a page edge onto the next page, with a top margin there.
+function relTop(el, page) { let y = 0; while (el && el !== page) { y += el.offsetTop; el = el.offsetParent; } return y; }
+function paginate(page) {
+  const atoms = $$('header, .cv-sec > h2, .cv-item, .cv-body > p, .cv-body > .cv-tags, .cv-body > .cv-langs, .sblock', page);
+  for (const el of atoms) {
+    const h = el.offsetHeight;
+    if (h > PH - TOPPAD - BOTPAD - 60) continue;
+    const top = relTop(el, page);
+    let need = h;
+    if (el.tagName === 'H2') { const nx = el.nextElementSibling && el.nextElementSibling.firstElementChild; need += Math.min(nx ? nx.offsetHeight : 0, 200) + 8; }
+    const idx = Math.floor(top / PH), end = (idx + 1) * PH - BOTPAD;
+    let delta = 0;
+    if (idx > 0 && top - idx * PH < TOPPAD) delta = idx * PH + TOPPAD - top;      // starts too close to a page's top edge
+    else if (top + need > end) delta = (idx + 1) * PH + TOPPAD - top;             // would be cut by the page's bottom edge
+    if (delta > 0) {
+      // A real spacer block, not a margin: print engines drop margins at a page break, but keep a block's height.
+      const target = top + delta, gap = document.createElement('div');
+      gap.className = 'pgap'; gap.setAttribute('aria-hidden', 'true'); gap.style.height = delta + 'px';
+      el.before(gap);
+      for (let k = 0; k < 3; k++) {
+        const now = relTop(el, page);
+        if (Math.abs(now - target) < 0.5) break;
+        gap.style.height = Math.max(0, parseFloat(gap.style.height) + target - now) + 'px';
+      }
+    }
+  }
+}
+function fit() {
+  const st = $('#stage'), sc = $('#scaler'), page = $('#page');
+  const w = st.clientWidth - 24;
+  if (w <= 0) return;
+  const s = Math.min(1, w / PW);
+  page.style.transform = `scale(${s})`;
+  sc.style.width = PW * s + 'px';
+  sc.style.height = page.offsetHeight * s + 'px';
+}
+let raf = 0;
+function schedule() {
+  if (raf) return;
+  raf = requestAnimationFrame(() => { raf = 0; renderCV(); renderStrength(); save(); });
+}
+
+/* ---------- events ---------- */
+function onField(e) {
+  const el = e.target, p = el.dataset.path;
+  if (!p) return;
+  const v = el.type === 'checkbox' ? el.checked : el.tagName === 'SELECT' ? Number(el.value) : el.value;
+  if (getPath(p) === v) return;
+  setPath(p, v); touched();
+  const it = el.closest('.it');
+  if (it) {
+    if (p.endsWith('.current')) { const end = it.querySelector('[data-path$=".end"]'); if (end) end.disabled = v; }
+    const cfg = LISTS[it.dataset.list], obj = S[it.dataset.list][+it.dataset.i];
+    it.querySelector('.it-t b').textContent = cfg.title(obj);
+    it.querySelector('.it-t small').textContent = cfg.sub(obj) || '';
+  }
+  if (p === 'summary') renderSumCount();
+  schedule();
+}
+document.addEventListener('input', onField);
+document.addEventListener('change', onField);
+
+const armed = new WeakMap();
+function arm(btn, label, fn) {
+  if (armed.get(btn)) { clearTimeout(armed.get(btn).t); armed.delete(btn); btn.classList.remove('armed'); fn(); return; }
+  const old = btn.textContent;
+  btn.classList.add('armed'); btn.textContent = label;
+  armed.set(btn, { t: setTimeout(() => { btn.classList.remove('armed'); btn.textContent = old; armed.delete(btn); }, 3000) });
+}
+
+document.addEventListener('click', (e) => {
+  const t = e.target;
+  const pick = t.closest('[data-pick]');
+  if (pick) { S.template = pick.dataset.pick; renderDesign(); schedule(); setView('edit'); $('#builder').scrollIntoView({ behavior: 'smooth' }); return; }
+  const act = t.closest('[data-act]');
+  if (act) {
+    const it = act.closest('.it'), name = it.dataset.list, i = +it.dataset.i, arr = S[name];
+    const a = act.dataset.act;
+    if (a === 'toggle') { const obj = arr[i]; if (openSet.has(obj)) openSet.delete(obj); else openSet.add(obj); it.classList.toggle('open'); act.setAttribute('aria-expanded', it.classList.contains('open')); return; }
+    if (a === 'up' && i > 0) { [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]]; }
+    else if (a === 'down' && i < arr.length - 1) { [arr[i + 1], arr[i]] = [arr[i], arr[i + 1]]; }
+    else if (a === 'del') { arm(act, 'متأكد؟', () => { arr.splice(i, 1); touched(); renderList(name); schedule(); }); return; }
+    else return;
+    touched(); renderList(name); schedule(); return;
+  }
+  const add = t.closest('[data-add]');
+  if (add) {
+    const name = add.dataset.add, obj = LISTS[name].make();
+    S[name].push(obj); openSet.add(obj); touched(); renderList(name); schedule();
+    const last = $('#list-' + name).lastElementChild; const inp = last && last.querySelector('input');
+    if (inp) inp.focus();
+    return;
+  }
+  const tpl = t.closest('[data-tpl]');
+  if (tpl) { S.template = tpl.dataset.tpl; renderDesign(); schedule(); return; }
+  const col = t.closest('[data-color]');
+  if (col) { S.color = col.dataset.color; renderDesign(); schedule(); return; }
+  const lg = t.closest('[data-lang]');
+  if (lg) {
+    const lang = lg.dataset.lang; if (lang === S.lang) return;
+    if (S.isSample) { S = sample(lang, S); renderAll(); }
+    else { S.lang = lang; renderDesign(); renderSkills(); schedule(); }
+    return;
+  }
+  const sk = t.closest('[data-skill]');
+  if (sk) { S.skills.splice(+sk.dataset.skill, 1); touched(); renderSkills(); schedule(); return; }
+  const sg = t.closest('[data-sug]');
+  if (sg) { addSkill(sg.dataset.sug); return; }
+  const vb = t.closest('[data-view-btn]');
+  if (vb) { setView(vb.dataset.viewBtn); return; }
+  if (t.closest('[data-dl]')) { download(); return; }
+  const tool = t.closest('[data-tool]');
+  if (tool) {
+    const k = tool.dataset.tool;
+    if (k === 'export') exportJSON();
+    if (k === 'sample') { S = sample(S.lang, S); renderAll(); }
+    if (k === 'new') arm(tool, 'متأكد؟ اضغط مرة ثانية', () => { S = blank(S); renderAll(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
+});
+
+$('#skillAdd').addEventListener('click', () => { addSkill($('#skillIn').value); $('#skillIn').value = ''; $('#skillIn').focus(); });
+$('#skillIn').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); addSkill(e.target.value); e.target.value = ''; } });
+$('#swatches').innerHTML = COLORS.map((c) => `<button type="button" data-color="${c}" style="background:${c}" aria-label="لون ${c}"></button>`).join('');
+
+$('#photoIn').addEventListener('change', async (e) => {
+  const f = e.target.files[0]; e.target.value = '';
+  if (!f) return;
+  try { S.photo = await toSquare(f, 420); touched(); renderPhoto(); schedule(); }
+  catch (err) { alertBox('ما قدرنا نقرأ الصورة، جرّب صورة ثانية.'); }
+});
+$('#photoDel').addEventListener('click', () => { S.photo = ''; renderPhoto(); schedule(); });
+function toSquare(file, size) {
+  return new Promise((res, rej) => {
+    const img = new Image(), u = URL.createObjectURL(file);
+    img.onload = () => {
+      const c = document.createElement('canvas'); c.width = c.height = size;
+      const m = Math.min(img.width, img.height), sx = (img.width - m) / 2, sy = Math.max(0, (img.height - m) / 2 * 0.5);
+      c.getContext('2d').drawImage(img, sx, sy, m, m, 0, 0, size, size);
+      URL.revokeObjectURL(u); res(c.toDataURL('image/jpeg', 0.86));
+    };
+    img.onerror = () => { URL.revokeObjectURL(u); rej(new Error('bad image')); };
+    img.src = u;
+  });
+}
+
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(S)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = (S.p.name.trim() || 'cv') + ' - سيرتي.json';
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+}
+$('#importIn').addEventListener('change', async (e) => {
+  const f = e.target.files[0]; e.target.value = '';
+  if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    if (!d || d.v !== 1 || !d.p) throw new Error('bad');
+    S = normalize(d); S.isSample = false; renderAll(); $('#saved').textContent = 'تم فتح النسخة';
+  } catch (err) { $('#saved').textContent = 'هذا الملف مو نسخة من سيرتي. اختر الملف اللي حفظته من زر «حفظ نسخة».'; }
+});
+function alertBox(msg) { $('#saved').textContent = msg; }
+
+function setView(v) {
+  document.body.dataset.view = v;
+  $$('[data-view-btn]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.viewBtn === v));
+  if (v === 'preview') requestAnimationFrame(fit);
+  const y = $('#builder').getBoundingClientRect().top + window.scrollY + 1;
+  if (window.scrollY > y) window.scrollTo({ top: y, behavior: 'instant' });
+}
+
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+function doPrint() {
+  const nm = S.p.name.trim();
+  document.title = (S.lang === 'ar' ? 'السيرة الذاتية - ' : 'CV - ') + (nm || (S.lang === 'ar' ? 'سيرتي' : 'Resume'));
+  renderCV();
+  window.print();
+}
+window.addEventListener('afterprint', () => { document.title = TITLE; });
+function download() { if (isIOS) $('#iosSheet').hidden = false; else doPrint(); }
+$('#iosGo').addEventListener('click', () => { $('#iosSheet').hidden = true; setTimeout(doPrint, 50); });
+$('#iosCancel').addEventListener('click', () => { $('#iosSheet').hidden = true; });
+
+if ('ResizeObserver' in window) new ResizeObserver(fit).observe($('#stage'));
+window.addEventListener('resize', fit);
+for (const n of Object.keys(LISTS)) if (S[n][0]) openSet.add(S[n][0]);
+renderAll();
+if (document.fonts) document.fonts.ready.then(() => renderCV());
+</script>
+</body>
+</html>
